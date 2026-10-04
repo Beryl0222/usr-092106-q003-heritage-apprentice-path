@@ -1,0 +1,667 @@
+[
+  {
+    "event_id": "evt-lineage-shaomai-001",
+    "event_type": "LINEAGE_REGISTERED",
+    "aggregate_type": "lineage",
+    "aggregate_id": "lineage-shaomai",
+    "occurred_at": "2026-09-01T10:00:00+08:00",
+    "version": 1,
+    "summary": "登记烧麦制作技艺谱系（都一处烧麦），明确传承代际与受限核心步骤清单",
+    "source": { "system": "TALENT_CENTER", "record_id": "LX-2026-0007", "entry_channel": "ONLINE", "recorded_at": "2026-09-01T10:00:00+08:00" },
+    "payload": {
+      "lineage_name": "都一处烧麦制作技艺",
+      "project_category": "传统面食制作技艺",
+      "generation": 8,
+      "restricted_step_ids": ["step-zouchuipi", "step-tianxian"]
+    }
+  },
+  {
+    "event_id": "evt-lineage-photo-001",
+    "event_type": "LINEAGE_REGISTERED",
+    "aggregate_type": "lineage",
+    "aggregate_id": "lineage-laophoto",
+    "occurred_at": "2026-09-01T10:20:00+08:00",
+    "version": 1,
+    "summary": "登记大北照相馆人像摄影技艺谱系",
+    "source": { "system": "TALENT_CENTER", "record_id": "LX-2026-0008", "entry_channel": "ONLINE", "recorded_at": "2026-09-01T10:20:00+08:00" },
+    "payload": {
+      "lineage_name": "大北照相馆人像摄影技艺",
+      "project_category": "摄影技艺",
+      "generation": 5,
+      "restricted_step_ids": ["step-xiugao"]
+    }
+  },
+  {
+    "event_id": "evt-cur-sm-v1-pub",
+    "event_type": "CURRICULUM_PUBLISHED",
+    "aggregate_type": "curriculum_version",
+    "aggregate_id": "cur-sm-v1",
+    "occurred_at": "2026-09-02T09:00:00+08:00",
+    "version": 1,
+    "summary": "发布烧麦课程 2026 秋 v1：擀皮、包制、蒸制等模块与学校学分对照",
+    "source": { "system": "SKILL_SCHOOL", "record_id": "COURSE-SM-2026A-V1", "entry_channel": "ONLINE", "recorded_at": "2026-09-02T09:00:00+08:00" },
+    "payload": {
+      "lineage_id": "lineage-shaomai",
+      "version_no": "2026秋-v1",
+      "status": "ACTIVE",
+      "effective_from": "2026-09-05",
+      "modules": [
+        { "module_id": "SM101", "title": "走槌擀皮", "step_ids": ["step-zouchuipi"], "school_credits": 4, "restricted": true },
+        { "module_id": "SM102", "title": "包制与褶", "step_ids": ["step-baozhi"], "school_credits": 3, "restricted": false },
+        { "module_id": "SM103", "title": "蒸制火候", "step_ids": ["step-zhengzhi"], "school_credits": 2, "restricted": false }
+      ]
+    }
+  },
+  {
+    "event_id": "evt-cur-photo-v1-pub",
+    "event_type": "CURRICULUM_PUBLISHED",
+    "aggregate_type": "curriculum_version",
+    "aggregate_id": "cur-photo-v1",
+    "occurred_at": "2026-09-02T09:30:00+08:00",
+    "version": 1,
+    "summary": "发布人像摄影课程 2026 秋 v1",
+    "source": { "system": "SKILL_SCHOOL", "record_id": "COURSE-PH-2026A-V1", "entry_channel": "ONLINE", "recorded_at": "2026-09-02T09:30:00+08:00" },
+    "payload": {
+      "lineage_id": "lineage-laophoto",
+      "version_no": "2026秋-v1",
+      "status": "ACTIVE",
+      "effective_from": "2026-09-05",
+      "modules": [
+        { "module_id": "PH101", "title": "构图与布光", "step_ids": ["step-gougou"], "school_credits": 3, "restricted": false },
+        { "module_id": "PH102", "title": "传统修稿技法", "step_ids": ["step-xiugao"], "school_credits": 4, "restricted": true }
+      ]
+    }
+  },
+  {
+    "event_id": "evt-master-sm01-reg",
+    "event_type": "MASTER_REGISTERED",
+    "aggregate_type": "master",
+    "aggregate_id": "master-sm-01",
+    "occurred_at": "2026-09-03T14:00:00+08:00",
+    "version": 1,
+    "summary": "烧麦大师工作室杨师傅备案，同时带教学徒上限 2 人",
+    "source": { "system": "MASTER_STUDIO", "record_id": "MS-DYC-01", "entry_channel": "ONLINE", "recorded_at": "2026-09-03T14:00:00+08:00" },
+    "payload": { "lineage_id": "lineage-shaomai", "studio_id": "studio-douyichu", "name": "杨师傅", "capacity": 2 }
+  },
+  {
+    "event_id": "evt-master-sm02-reg",
+    "event_type": "MASTER_REGISTERED",
+    "aggregate_type": "master",
+    "aggregate_id": "master-sm-02",
+    "occurred_at": "2026-09-03T14:10:00+08:00",
+    "version": 1,
+    "summary": "烧麦大师工作室吴师傅备案，带教上限 2 人",
+    "source": { "system": "MASTER_STUDIO", "record_id": "MS-DYC-02", "entry_channel": "ONLINE", "recorded_at": "2026-09-03T14:10:00+08:00" },
+    "payload": { "lineage_id": "lineage-shaomai", "studio_id": "studio-douyichu", "name": "吴师傅", "capacity": 2 }
+  },
+  {
+    "event_id": "evt-master-ph01-reg",
+    "event_type": "MASTER_REGISTERED",
+    "aggregate_type": "master",
+    "aggregate_id": "master-photo-01",
+    "occurred_at": "2026-09-03T14:20:00+08:00",
+    "version": 1,
+    "summary": "人像摄影大师工作室周师傅备案，带教上限 3 人",
+    "source": { "system": "MASTER_STUDIO", "record_id": "MS-DB-01", "entry_channel": "ONLINE", "recorded_at": "2026-09-03T14:20:00+08:00" },
+    "payload": { "lineage_id": "lineage-laophoto", "studio_id": "studio-dabei", "name": "周师傅", "capacity": 3 }
+  },
+  {
+    "event_id": "evt-A001-enroll",
+    "event_type": "APPRENTICE_ENROLLED",
+    "aggregate_type": "apprenticeship",
+    "aggregate_id": "appr-A001",
+    "occurred_at": "2026-09-05T09:30:00+08:00",
+    "version": 1,
+    "summary": "学徒陈砚入学烧麦项目，对接技能学校 2026 秋 v1 课程",
+    "source": { "system": "SKILL_SCHOOL", "record_id": "ENR-2026-A001", "entry_channel": "ONLINE", "recorded_at": "2026-09-05T09:30:00+08:00" },
+    "payload": {
+      "apprentice_name": "陈砚",
+      "lineage_id": "lineage-shaomai",
+      "curriculum_version_id": "cur-sm-v1",
+      "school_program": "中式面点 2026 秋班"
+    }
+  },
+  {
+    "event_id": "evt-A002-enroll",
+    "event_type": "APPRENTICE_ENROLLED",
+    "aggregate_type": "apprenticeship",
+    "aggregate_id": "appr-A002",
+    "occurred_at": "2026-09-05T09:40:00+08:00",
+    "version": 1,
+    "summary": "学徒林禾入学人像摄影项目",
+    "source": { "system": "SKILL_SCHOOL", "record_id": "ENR-2026-A002", "entry_channel": "ONLINE", "recorded_at": "2026-09-05T09:40:00+08:00" },
+    "payload": {
+      "apprentice_name": "林禾",
+      "lineage_id": "lineage-laophoto",
+      "curriculum_version_id": "cur-photo-v1",
+      "school_program": "商业摄影 2026 秋班"
+    }
+  },
+  {
+    "event_id": "evt-ment-A001-sm01-assign",
+    "event_type": "MENTORSHIP_ASSIGNED",
+    "aggregate_type": "mentorship",
+    "aggregate_id": "ment-A001-sm01",
+    "occurred_at": "2026-09-06T10:00:00+08:00",
+    "version": 1,
+    "summary": "陈砚拜入杨师傅门下，占用杨师傅 1 个带教名额",
+    "source": { "system": "MASTER_STUDIO", "record_id": "MT-DYC-2026-011", "entry_channel": "ONLINE", "recorded_at": "2026-09-06T10:00:00+08:00" },
+    "payload": { "apprentice_id": "appr-A001", "master_id": "master-sm-01", "lineage_id": "lineage-shaomai", "load_delta": 1 }
+  },
+  {
+    "event_id": "evt-ment-A002-ph01-assign",
+    "event_type": "MENTORSHIP_ASSIGNED",
+    "aggregate_type": "mentorship",
+    "aggregate_id": "ment-A002-ph01",
+    "occurred_at": "2026-09-06T10:10:00+08:00",
+    "version": 1,
+    "summary": "林禾拜入周师傅门下学习人像摄影",
+    "source": { "system": "MASTER_STUDIO", "record_id": "MT-DB-2026-007", "entry_channel": "ONLINE", "recorded_at": "2026-09-06T10:10:00+08:00" },
+    "payload": { "apprentice_id": "appr-A002", "master_id": "master-photo-01", "lineage_id": "lineage-laophoto", "load_delta": 1 }
+  },
+  {
+    "event_id": "evt-pr-A002-0910",
+    "event_type": "ATTENDANCE_MARKED",
+    "aggregate_type": "practice_record",
+    "aggregate_id": "pr-A002-20260910",
+    "occurred_at": "2026-09-10T16:00:00+08:00",
+    "version": 1,
+    "summary": "林禾在大北摄影工作室完成构图布光实训签到",
+    "source": { "system": "MASTER_STUDIO", "record_id": "ATT-DB-20260910-A002", "entry_channel": "ONLINE", "recorded_at": "2026-09-10T16:00:00+08:00" },
+    "payload": { "apprentice_id": "appr-A002", "module_id": "PH101", "hours": 4 }
+  },
+  {
+    "event_id": "evt-pw-A002-01",
+    "event_type": "PRACTICE_WORK_SUBMITTED",
+    "aggregate_type": "practice_work",
+    "aggregate_id": "pw-A002-gougou-01",
+    "occurred_at": "2026-09-13T15:00:00+08:00",
+    "version": 1,
+    "summary": "林禾提交人像布光实训作品一组（6 张）",
+    "source": { "system": "MASTER_STUDIO", "record_id": "PW-DB-2026-009", "entry_channel": "ONLINE", "recorded_at": "2026-09-13T15:00:00+08:00" },
+    "payload": {
+      "apprentice_id": "appr-A002",
+      "module_id": "PH101",
+      "step_id": "step-gougou",
+      "title": "人像布光练习作品第 1 组",
+      "school_course_code": "PH101",
+      "artifact_storage": "学校数字实训库/PH101/A002"
+    }
+  },
+  {
+    "event_id": "evt-pr-A001-0908",
+    "event_type": "ATTENDANCE_MARKED",
+    "aggregate_type": "practice_record",
+    "aggregate_id": "pr-A001-20260908",
+    "occurred_at": "2026-09-08T15:30:00+08:00",
+    "version": 1,
+    "summary": "陈砚在工作室完成当日实训签到（仅考勤，不产生能力结论）",
+    "source": { "system": "MASTER_STUDIO", "record_id": "ATT-DYC-20260908-A001", "entry_channel": "ONLINE", "recorded_at": "2026-09-08T15:30:00+08:00" },
+    "payload": { "apprentice_id": "appr-A001", "module_id": "SM101", "hours": 4 }
+  },
+  {
+    "event_id": "evt-pr-A001-0909",
+    "event_type": "ATTENDANCE_MARKED",
+    "aggregate_type": "practice_record",
+    "aggregate_id": "pr-A001-20260909",
+    "occurred_at": "2026-09-09T15:40:00+08:00",
+    "version": 1,
+    "summary": "陈砚在工作室完成第二日实训签到",
+    "source": { "system": "MASTER_STUDIO", "record_id": "ATT-DYC-20260909-A001", "entry_channel": "ONLINE", "recorded_at": "2026-09-09T15:40:00+08:00" },
+    "payload": { "apprentice_id": "appr-A001", "module_id": "SM101", "hours": 4 }
+  },
+  {
+    "event_id": "evt-pw-A001-01",
+    "event_type": "PRACTICE_WORK_SUBMITTED",
+    "aggregate_type": "practice_work",
+    "aggregate_id": "pw-A001-zouchuipi-01",
+    "occurred_at": "2026-09-12T16:00:00+08:00",
+    "version": 1,
+    "summary": "陈砚提交走槌擀皮实训作品一屉（烧麦胚 24 只），关联学校 SM101 学分",
+    "source": { "system": "MASTER_STUDIO", "record_id": "PW-DYC-2026-031", "entry_channel": "ONLINE", "recorded_at": "2026-09-12T16:00:00+08:00" },
+    "payload": {
+      "apprentice_id": "appr-A001",
+      "module_id": "SM101",
+      "step_id": "step-zouchuipi",
+      "title": "走槌擀皮练习作品第 1 件",
+      "school_course_code": "SM101",
+      "artifact_storage": "学校实训档案柜 A-03"
+    }
+  },
+  {
+    "event_id": "evt-cr-A001-core-01",
+    "event_type": "CORE_STEP_ATTESTED",
+    "aggregate_type": "competency_record",
+    "aggregate_id": "cr-A001-step-zouchuipi",
+    "occurred_at": "2026-09-15T11:00:00+08:00",
+    "version": 1,
+    "summary": "杨师傅口传核心步骤走槌擀皮：仅登记完成结论，手法与参数留存于工作室保密柜",
+    "source": { "system": "MASTER_STUDIO", "record_id": "CS-DYC-2026-014", "entry_channel": "ONLINE", "recorded_at": "2026-09-15T11:00:00+08:00" },
+    "payload": {
+      "apprentice_id": "appr-A001",
+      "module_id": "SM101",
+      "step_id": "step-zouchuipi",
+      "restriction": {
+        "classification": "RESTRICTED_CORE_TECHNIQUE",
+        "conclusion": "COMPLETED",
+        "vault_location": "都一处大师工作室保密柜 B-12/技法凭证袋 07",
+        "custodian_id": "master-sm-01"
+      }
+    }
+  },
+  {
+    "event_id": "evt-cr-A001-assess-01",
+    "event_type": "COMPETENCY_ASSESSED",
+    "aggregate_type": "competency_record",
+    "aggregate_id": "cr-A001-step-zouchuipi",
+    "occurred_at": "2026-09-16T15:00:00+08:00",
+    "version": 2,
+    "summary": "走槌擀皮工序三方评价：师傅通过、学校附条件、企业试做不通过，评价分歧进入复核",
+    "source": { "system": "TALENT_CENTER", "record_id": "CA-2026-1024", "entry_channel": "ONLINE", "recorded_at": "2026-09-16T15:00:00+08:00" },
+    "payload": {
+      "apprentice_id": "appr-A001",
+      "module_id": "SM101",
+      "step_id": "step-zouchuipi",
+      "assessments": [
+        { "party": "MASTER", "result": "PASS", "evaluator_id": "master-sm-01", "evidence_ids": ["evt-cr-A001-core-01"], "note": "口传步骤完整，手感达标" },
+        { "party": "SCHOOL", "result": "CONDITIONAL", "evaluator_id": "teacher-li", "evidence_ids": ["evt-pw-A001-01"], "note": "厚薄均匀度仍需练习，SM101 学分暂记缓评" },
+        { "party": "ENTERPRISE", "result": "FAIL", "evaluator_id": "ent-douyichu-qc", "evidence_ids": ["ev-A001-enterprise-01"], "note": "量产节拍下合格率不足" }
+      ]
+    }
+  },
+  {
+    "event_id": "evt-ev-A001-ent-01",
+    "event_type": "ASSESSMENT_EVIDENCE_ATTACHED",
+    "aggregate_type": "assessment_evidence",
+    "aggregate_id": "ev-A001-enterprise-01",
+    "occurred_at": "2026-09-16T16:30:00+08:00",
+    "version": 1,
+    "summary": "企业附试做合格率抽检记录作为分歧证据（不含受限技法内容）",
+    "source": { "system": "EMPLOYING_ENTERPRISE", "record_id": "QC-DYC-20260916-07", "entry_channel": "ONLINE", "recorded_at": "2026-09-16T16:30:00+08:00" },
+    "payload": {
+      "competency_record_id": "cr-A001-step-zouchuipi",
+      "enterprise_id": "ent-douyichu",
+      "evidence_type": "试做抽检表",
+      "artifact_storage": "人才中心证据库/EV-2026-1024"
+    }
+  },
+  {
+    "event_id": "evt-rv-A001-open-01",
+    "event_type": "COMPETENCY_REVIEW_OPENED",
+    "aggregate_type": "competency_review",
+    "aggregate_id": "rv-A001-step-zouchuipi",
+    "occurred_at": "2026-09-17T09:30:00+08:00",
+    "version": 1,
+    "correlation_id": "review-batch-2026-09-3",
+    "summary": "人才中心受理三方评价分歧，组织能力复核",
+    "source": { "system": "TALENT_CENTER", "record_id": "RV-2026-021", "entry_channel": "ONLINE", "recorded_at": "2026-09-17T09:30:00+08:00" },
+    "payload": {
+      "competency_record_id": "cr-A001-step-zouchuipi",
+      "apprentice_id": "appr-A001",
+      "divergent_parties": ["MASTER", "SCHOOL", "ENTERPRISE"],
+      "evidence_ids": ["evt-cr-A001-core-01", "evt-pw-A001-01", "ev-A001-enterprise-01"]
+    }
+  },
+  {
+    "event_id": "evt-ev-A001-paper-01",
+    "event_type": "ASSESSMENT_EVIDENCE_ATTACHED",
+    "aggregate_type": "assessment_evidence",
+    "aggregate_id": "ev-A001-paper-01",
+    "occurred_at": "2026-09-14T10:00:00+08:00",
+    "version": 1,
+    "summary": "线下补录：杨师傅手签口传考核评语单，随 9 月补录批次进入档案",
+    "source": {
+      "system": "MASTER_STUDIO",
+      "record_id": "纸质凭证 MS-PJ-2026-018",
+      "entry_channel": "OFFLINE_BACKFILL",
+      "recorded_at": "2026-09-14T10:00:00+08:00",
+      "imported_at": "2026-09-18T10:30:00+08:00",
+      "batch_id": "BACKFILL-2026-09-03",
+      "operator_id": "staff-wang"
+    },
+    "payload": {
+      "competency_record_id": "cr-A001-step-zouchuipi",
+      "evidence_type": "手签评语单",
+      "artifact_storage": "人才中心纸质档案 2026-复核-021 卷"
+    }
+  },
+  {
+    "event_id": "evt-rv-A001-decide-01",
+    "event_type": "COMPETENCY_REVIEW_DECIDED",
+    "aggregate_type": "competency_review",
+    "aggregate_id": "rv-A001-step-zouchuipi",
+    "occurred_at": "2026-09-19T17:00:00+08:00",
+    "version": 2,
+    "correlation_id": "review-batch-2026-09-3",
+    "summary": "复核结论：限定范围认定走槌擀皮能力——门店常规出品有效，量产高速节拍待复评",
+    "source": { "system": "TALENT_CENTER", "record_id": "RV-2026-021-J01", "entry_channel": "ONLINE", "recorded_at": "2026-09-19T17:00:00+08:00" },
+    "payload": {
+      "competency_record_id": "cr-A001-step-zouchuipi",
+      "decision": "PASS_WITH_SCOPE",
+      "recognized_scope": "门店常规出品节拍下的走槌擀皮",
+      "excluded_scope": "量产高速节拍",
+      "committee": ["master-sm-02", "teacher-chen", "ent-douyichu-qc"],
+      "school_credit_settlement": "SM101 学分 4 分准予登记"
+    }
+  },
+  {
+    "event_id": "evt-st-A001-202609",
+    "event_type": "STIPEND_GRANTED",
+    "aggregate_type": "stipend",
+    "aggregate_id": "st-A001-202609",
+    "occurred_at": "2026-09-21T10:00:00+08:00",
+    "version": 1,
+    "summary": "发放陈砚 9 月实训津贴（线上名册）",
+    "source": { "system": "TALENT_CENTER", "record_id": "BT-2026-09-A001", "entry_channel": "ONLINE", "recorded_at": "2026-09-21T10:00:00+08:00" },
+    "payload": {
+      "apprentice_id": "appr-A001",
+      "period": "2026-09",
+      "purpose": "实训津贴",
+      "amount_cents": 120000,
+      "dedupe_key": "stipend:appr-A001:2026-09:training"
+    }
+  },
+  {
+    "event_id": "evt-A001-suspend",
+    "event_type": "APPRENTICE_SUSPENDED",
+    "aggregate_type": "apprenticeship",
+    "aggregate_id": "appr-A001",
+    "occurred_at": "2026-09-20T09:00:00+08:00",
+    "version": 2,
+    "summary": "陈砚因手腕劳损申请休学三周；既往考勤、作品与复核结论保留",
+    "source": { "system": "SKILL_SCHOOL", "record_id": "SUS-2026-A001", "entry_channel": "ONLINE", "recorded_at": "2026-09-20T09:00:00+08:00" },
+    "payload": { "reason": "手腕劳损", "expected_resume_on": "2026-09-25", "retained": true }
+  },
+  {
+    "event_id": "evt-ment-A001-sm01-pause",
+    "event_type": "MENTORSHIP_PAUSED",
+    "aggregate_type": "mentorship",
+    "aggregate_id": "ment-A001-sm01",
+    "occurred_at": "2026-09-20T09:05:00+08:00",
+    "version": 2,
+    "summary": "休学同步挂起师徒带教，释放杨师傅 1 个带教名额",
+    "source": { "system": "MASTER_STUDIO", "record_id": "MT-DYC-2026-011-P", "entry_channel": "ONLINE", "recorded_at": "2026-09-20T09:05:00+08:00" },
+    "payload": { "reason": "学徒休学", "load_delta": -1 }
+  },
+  {
+    "event_id": "evt-A002-transfer",
+    "event_type": "APPRENTICE_TRANSFERRED",
+    "aggregate_type": "apprenticeship",
+    "aggregate_id": "appr-A002",
+    "occurred_at": "2026-09-22T11:00:00+08:00",
+    "version": 2,
+    "summary": "林禾由人像摄影项目转至烧麦项目，摄影既往成绩保留但不直接算作烧麦工序能力",
+    "source": { "system": "SKILL_SCHOOL", "record_id": "TR-2026-A002", "entry_channel": "ONLINE", "recorded_at": "2026-09-22T11:00:00+08:00" },
+    "payload": {
+      "from_lineage_id": "lineage-laophoto",
+      "to_lineage_id": "lineage-shaomai",
+      "to_curriculum_version_id": "cur-sm-v1",
+      "retained_records": ["pr/PH101 考勤", "pw/PH101 作品"]
+    }
+  },
+  {
+    "event_id": "evt-ment-A002-ph01-end",
+    "event_type": "MENTORSHIP_ENDED",
+    "aggregate_type": "mentorship",
+    "aggregate_id": "ment-A002-ph01",
+    "occurred_at": "2026-09-22T11:10:00+08:00",
+    "version": 2,
+    "summary": "林禾转项目，与周师傅的师徒关系结束并释放带教名额",
+    "source": { "system": "MASTER_STUDIO", "record_id": "MT-DB-2026-007-E", "entry_channel": "ONLINE", "recorded_at": "2026-09-22T11:10:00+08:00" },
+    "payload": { "reason": "APPRENTICE_TRANSFERRED", "load_delta": -1 }
+  },
+  {
+    "event_id": "evt-ment-A002-sm02-assign",
+    "event_type": "MENTORSHIP_ASSIGNED",
+    "aggregate_type": "mentorship",
+    "aggregate_id": "ment-A002-sm02",
+    "occurred_at": "2026-09-22T14:00:00+08:00",
+    "version": 1,
+    "summary": "林禾拜入吴师傅门下学习烧麦，占用吴师傅 1 个带教名额",
+    "source": { "system": "MASTER_STUDIO", "record_id": "MT-DYC-2026-019", "entry_channel": "ONLINE", "recorded_at": "2026-09-22T14:00:00+08:00" },
+    "payload": { "apprentice_id": "appr-A002", "master_id": "master-sm-02", "lineage_id": "lineage-shaomai", "load_delta": 1 }
+  },
+  {
+    "event_id": "evt-A002-credit",
+    "event_type": "CREDIT_TRANSFERRED",
+    "aggregate_type": "apprenticeship",
+    "aggregate_id": "appr-A002",
+    "occurred_at": "2026-09-23T10:00:00+08:00",
+    "version": 3,
+    "summary": "认定林禾摄影 PH101 学分可转作通识选修 2 分；受限的传统修稿成绩不带入新项目",
+    "source": { "system": "SKILL_SCHOOL", "record_id": "CR-2026-A002", "entry_channel": "ONLINE", "recorded_at": "2026-09-23T10:00:00+08:00" },
+    "payload": {
+      "from_curriculum_version_id": "cur-photo-v1",
+      "to_curriculum_version_id": "cur-sm-v1",
+      "recognized": [
+        { "from_module_id": "PH101", "as": "通识选修", "credits": 2, "scope": "general_only" }
+      ],
+      "not_recognized": [
+        { "module_id": "PH102", "reason": "跨谱系受限核心技法，不随学徒转出工作室" }
+      ]
+    }
+  },
+  {
+    "event_id": "evt-st-A002-202609-backfill",
+    "event_type": "STIPEND_GRANTED",
+    "aggregate_type": "stipend",
+    "aggregate_id": "st-A002-202609",
+    "occurred_at": "2026-09-21T10:00:00+08:00",
+    "version": 1,
+    "summary": "线下补录：林禾 9 月实训津贴依学校纸质签收名册随批次入账",
+    "source": {
+      "system": "OFFLINE_BACKFILL",
+      "record_id": "纸质凭证 PX-QS-2026-09-A002",
+      "entry_channel": "OFFLINE_BACKFILL",
+      "recorded_at": "2026-09-21T10:00:00+08:00",
+      "imported_at": "2026-09-23T15:00:00+08:00",
+      "batch_id": "BACKFILL-2026-09-03",
+      "operator_id": "staff-wang"
+    },
+    "payload": {
+      "apprentice_id": "appr-A002",
+      "period": "2026-09",
+      "purpose": "实训津贴",
+      "amount_cents": 90000,
+      "dedupe_key": "stipend:appr-A002:2026-09:training"
+    }
+  },
+  {
+    "event_id": "evt-A001-resume",
+    "event_type": "APPRENTICE_RESUMED",
+    "aggregate_type": "apprenticeship",
+    "aggregate_id": "appr-A001",
+    "occurred_at": "2026-09-25T09:00:00+08:00",
+    "version": 3,
+    "summary": "陈砚休学期满复课，沿用既有成长档案与既往成绩",
+    "source": { "system": "SKILL_SCHOOL", "record_id": "RS-2026-A001", "entry_channel": "ONLINE", "recorded_at": "2026-09-25T09:00:00+08:00" },
+    "payload": { "resumed_from_event_id": "evt-A001-suspend" }
+  },
+  {
+    "event_id": "evt-ment-A001-sm01-resume",
+    "event_type": "MENTORSHIP_RESUMED",
+    "aggregate_type": "mentorship",
+    "aggregate_id": "ment-A001-sm01",
+    "occurred_at": "2026-09-25T09:10:00+08:00",
+    "version": 3,
+    "summary": "复课同步恢复杨师傅带教，重新占用 1 个带教名额",
+    "source": { "system": "MASTER_STUDIO", "record_id": "MT-DYC-2026-011-R", "entry_channel": "ONLINE", "recorded_at": "2026-09-25T09:10:00+08:00" },
+    "payload": { "load_delta": 1 }
+  },
+  {
+    "event_id": "evt-cur-sm-v2-pub",
+    "event_type": "CURRICULUM_PUBLISHED",
+    "aggregate_type": "curriculum_version",
+    "aggregate_id": "cur-sm-v2",
+    "occurred_at": "2026-09-26T09:00:00+08:00",
+    "version": 1,
+    "summary": "发布烧麦课程 2026 秋 v2：调整蒸制模块标准并新增质量控制点",
+    "source": { "system": "SKILL_SCHOOL", "record_id": "COURSE-SM-2026A-V2", "entry_channel": "ONLINE", "recorded_at": "2026-09-26T09:00:00+08:00" },
+    "payload": {
+      "lineage_id": "lineage-shaomai",
+      "version_no": "2026秋-v2",
+      "status": "ACTIVE",
+      "effective_from": "2026-09-26",
+      "modules": [
+        { "module_id": "SM101", "title": "走槌擀皮", "step_ids": ["step-zouchuipi"], "school_credits": 4, "restricted": true },
+        { "module_id": "SM102", "title": "包制与褶", "step_ids": ["step-baozhi"], "school_credits": 3, "restricted": false },
+        { "module_id": "SM103", "title": "蒸制火候与质量控制点", "step_ids": ["step-zhengzhi", "step-zhikong"], "school_credits": 3, "restricted": false }
+      ]
+    }
+  },
+  {
+    "event_id": "evt-cur-sm-v1-supersede",
+    "event_type": "CURRICULUM_SUPERSEDED",
+    "aggregate_type": "curriculum_version",
+    "aggregate_id": "cur-sm-v1",
+    "occurred_at": "2026-09-26T09:05:00+08:00",
+    "version": 2,
+    "summary": "烧麦课程 v1 被 v2 替代，附既往成绩转认对照",
+    "source": { "system": "SKILL_SCHOOL", "record_id": "COURSE-SM-2026A-V1-S", "entry_channel": "ONLINE", "recorded_at": "2026-09-26T09:05:00+08:00" },
+    "payload": {
+      "superseded_by": "cur-sm-v2",
+      "credit_transfer_map": [
+        { "from_module_id": "SM101", "to_module_id": "SM101", "transferable": true },
+        { "from_module_id": "SM102", "to_module_id": "SM102", "transferable": true },
+        { "from_module_id": "SM103", "to_module_id": "SM103", "transferable": "partial", "note": "须补修新增质量控制点" }
+      ]
+    }
+  },
+  {
+    "event_id": "evt-A001-credit-v2",
+    "event_type": "CREDIT_TRANSFERRED",
+    "aggregate_type": "apprenticeship",
+    "aggregate_id": "appr-A001",
+    "occurred_at": "2026-09-27T10:00:00+08:00",
+    "version": 4,
+    "summary": "陈砚升版至课程 v2：SM101（含受限核心步骤完成结论）与 SM102 全额转认，SM103 补修控制点",
+    "source": { "system": "SKILL_SCHOOL", "record_id": "CR-2026-A001", "entry_channel": "ONLINE", "recorded_at": "2026-09-27T10:00:00+08:00" },
+    "payload": {
+      "from_curriculum_version_id": "cur-sm-v1",
+      "to_curriculum_version_id": "cur-sm-v2",
+      "recognized": [
+        { "from_module_id": "SM101", "as": "SM101", "credits": 4, "scope": "full", "restricted_conclusion_retained": true },
+        { "from_module_id": "SM102", "as": "SM102", "credits": 3, "scope": "full" }
+      ],
+      "not_recognized": [
+        { "module_id": "SM103", "reason": "标准升级，须补修 step-zhikong 质量控制点" }
+      ]
+    }
+  },
+  {
+    "event_id": "evt-master-sm02-cap",
+    "event_type": "MASTER_CAPACITY_UPDATED",
+    "aggregate_type": "master",
+    "aggregate_id": "master-sm-02",
+    "occurred_at": "2026-09-27T11:00:00+08:00",
+    "version": 2,
+    "summary": "工作室扩容，吴师傅带教上限调整为 3 人",
+    "source": { "system": "MASTER_STUDIO", "record_id": "MS-DYC-02-CAP", "entry_channel": "ONLINE", "recorded_at": "2026-09-27T11:00:00+08:00" },
+    "payload": { "capacity": 3, "reason": "工作室扩容" }
+  },
+  {
+    "event_id": "evt-ment-A001-sm01-end",
+    "event_type": "MENTORSHIP_ENDED",
+    "aggregate_type": "mentorship",
+    "aggregate_id": "ment-A001-sm01",
+    "occurred_at": "2026-09-28T08:30:00+08:00",
+    "version": 4,
+    "summary": "杨师傅因健康原因退出带教，与陈砚的师徒关系结束，既往带教记录保留、名额释放",
+    "source": { "system": "MASTER_STUDIO", "record_id": "MT-DYC-2026-011-E", "entry_channel": "ONLINE", "recorded_at": "2026-09-28T08:30:00+08:00" },
+    "payload": { "reason": "MASTER_WITHDRAWN", "load_delta": -1, "records_retained": true }
+  },
+  {
+    "event_id": "evt-master-sm01-withdraw",
+    "event_type": "MASTER_WITHDRAWN",
+    "aggregate_type": "master",
+    "aggregate_id": "master-sm-01",
+    "occurred_at": "2026-09-28T08:35:00+08:00",
+    "version": 2,
+    "summary": "杨师傅退出大师工作室带教名册，名下已无在册学徒",
+    "source": { "system": "MASTER_STUDIO", "record_id": "MS-DYC-01-W", "entry_channel": "ONLINE", "recorded_at": "2026-09-28T08:35:00+08:00" },
+    "payload": { "reason": "健康原因", "retained_records": true }
+  },
+  {
+    "event_id": "evt-ment-A001-sm02-assign",
+    "event_type": "MENTORSHIP_ASSIGNED",
+    "aggregate_type": "mentorship",
+    "aggregate_id": "ment-A001-sm02",
+    "occurred_at": "2026-09-28T09:00:00+08:00",
+    "version": 1,
+    "summary": "陈砚改由吴师傅接续带教，占用吴师傅 1 个带教名额；原师门成绩与复核结论继续有效",
+    "source": { "system": "MASTER_STUDIO", "record_id": "MT-DYC-2026-022", "entry_channel": "ONLINE", "recorded_at": "2026-09-28T09:00:00+08:00" },
+    "payload": {
+      "apprentice_id": "appr-A001",
+      "master_id": "master-sm-02",
+      "lineage_id": "lineage-shaomai",
+      "load_delta": 1,
+      "succeeding_mentorship_id": "ment-A001-sm01"
+    }
+  },
+  {
+    "event_id": "evt-pl-A001-trial-start",
+    "event_type": "TRIAL_PLACEMENT_STARTED",
+    "aggregate_type": "placement",
+    "aggregate_id": "pl-A001-douyichu",
+    "occurred_at": "2026-09-29T09:00:00+08:00",
+    "version": 1,
+    "summary": "陈砚进入都一处烧麦馆试岗，试岗期 5 天；企业视图仅见能力结论，不含受限技法细节",
+    "source": { "system": "EMPLOYING_ENTERPRISE", "record_id": "ZP-DYC-2026-031", "entry_channel": "ONLINE", "recorded_at": "2026-09-29T09:00:00+08:00" },
+    "payload": {
+      "apprentice_id": "appr-A001",
+      "enterprise_id": "ent-douyichu",
+      "position": "面点工学徒岗",
+      "trial_from": "2026-09-29",
+      "trial_to": "2026-10-03",
+      "competency_snapshot_ref": "cr-A001-step-zouchuipi"
+    }
+  },
+  {
+    "event_id": "evt-pl-A001-trial-eval",
+    "event_type": "TRIAL_PLACEMENT_EVALUATED",
+    "aggregate_type": "placement",
+    "aggregate_id": "pl-A001-douyichu",
+    "occurred_at": "2026-10-02T17:00:00+08:00",
+    "version": 2,
+    "summary": "企业试岗评价合格：常规出品独立完成，建议录用",
+    "source": { "system": "EMPLOYING_ENTERPRISE", "record_id": "ZP-DYC-2026-031-E", "entry_channel": "ONLINE", "recorded_at": "2026-10-02T17:00:00+08:00" },
+    "payload": {
+      "enterprise_id": "ent-douyichu",
+      "result": "PASS",
+      "evaluator_id": "ent-douyichu-qc",
+      "note": "门店节拍出品稳定，遵守受限内容管理要求"
+    }
+  },
+  {
+    "event_id": "evt-pl-A001-confirmed",
+    "event_type": "PLACEMENT_CONFIRMED",
+    "aggregate_type": "placement",
+    "aggregate_id": "pl-A001-douyichu",
+    "occurred_at": "2026-10-03T10:00:00+08:00",
+    "version": 3,
+    "summary": "陈砚通过试岗，正式录用为都一处烧麦馆面点工",
+    "source": { "system": "EMPLOYING_ENTERPRISE", "record_id": "ZP-DYC-2026-031-C", "entry_channel": "ONLINE", "recorded_at": "2026-10-03T10:00:00+08:00" },
+    "payload": {
+      "apprentice_id": "appr-A001",
+      "enterprise_id": "ent-douyichu",
+      "position": "面点工",
+      "employed_from": "2026-10-04"
+    }
+  },
+  {
+    "event_id": "evt-A001-pathway-done",
+    "event_type": "PATHWAY_COMPLETED",
+    "aggregate_type": "apprenticeship",
+    "aggregate_id": "appr-A001",
+    "occurred_at": "2026-10-03T11:00:00+08:00",
+    "version": 5,
+    "summary": "成长路径闭环：一次实训到正式上岗全程可追溯，培训投入对应到合格上岗结论",
+    "source": { "system": "TALENT_CENTER", "record_id": "PW-2026-A001-DONE", "entry_channel": "ONLINE", "recorded_at": "2026-10-03T11:00:00+08:00" },
+    "payload": {
+      "outcome": "FORMAL_EMPLOYMENT",
+      "placement_id": "pl-A001-douyichu",
+      "final_curriculum_version_id": "cur-sm-v2",
+      "recognized_competencies": ["cr-A001-step-zouchuipi"]
+    }
+  }
+]

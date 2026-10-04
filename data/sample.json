@@ -5,5 +5,11 @@
   "aggregate_id": "heritage_apprentice_path-001",
   "occurred_at": "2026-09-20T15:00:00+08:00",
   "version": 1,
-  "summary": "登记非遗学徒成长档案的首条领域记录"
+  "summary": "登记非遗学徒成长档案的首条领域记录",
+  "source": {
+    "system": "SKILL_SCHOOL",
+    "record_id": "ENR-SAMPLE-001",
+    "entry_channel": "ONLINE",
+    "recorded_at": "2026-09-20T15:00:00+08:00"
+  }
 }

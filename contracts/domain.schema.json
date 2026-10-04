@@ -1,6 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "非遗学徒成长档案领域事件",
+  "title": "非遗学徒成长服务领域事件",
+  "description": "东城区非遗学徒成长服务事件契约。事件一经接收即不可原地改写，更正须产生后继事件；接入记录统一携带 source 追溯块。传统核心步骤事件只承载完成结论与保管位置，受限技法细节不得进入事件载荷。",
   "type": "object",
   "required": [
     "event_id",
@@ -9,29 +10,62 @@
     "aggregate_id",
     "occurred_at",
     "version",
-    "summary"
+    "summary",
+    "source"
   ],
   "properties": {
     "event_id": {
       "type": "string",
-      "minLength": 1
+      "minLength": 1,
+      "description": "事件全局唯一标识，接收后永不复用。"
     },
     "event_type": {
       "type": "string",
       "enum": [
+        "LINEAGE_REGISTERED",
+        "CURRICULUM_PUBLISHED",
+        "CURRICULUM_SUPERSEDED",
+        "MASTER_REGISTERED",
+        "MASTER_CAPACITY_UPDATED",
+        "MASTER_WITHDRAWN",
         "APPRENTICE_ENROLLED",
-        "PRACTICE_RECORDED",
-        "COMPETENCY_REVIEWED",
+        "APPRENTICE_SUSPENDED",
+        "APPRENTICE_RESUMED",
+        "APPRENTICE_TRANSFERRED",
+        "MENTORSHIP_ASSIGNED",
+        "MENTORSHIP_PAUSED",
+        "MENTORSHIP_RESUMED",
+        "MENTORSHIP_ENDED",
+        "ATTENDANCE_MARKED",
+        "PRACTICE_WORK_SUBMITTED",
+        "CORE_STEP_ATTESTED",
+        "COMPETENCY_ASSESSED",
+        "ASSESSMENT_EVIDENCE_ATTACHED",
+        "COMPETENCY_REVIEW_OPENED",
+        "COMPETENCY_REVIEW_DECIDED",
         "CREDIT_TRANSFERRED",
-        "PLACEMENT_CONFIRMED"
+        "STIPEND_GRANTED",
+        "STIPEND_REVOKED",
+        "TRIAL_PLACEMENT_STARTED",
+        "TRIAL_PLACEMENT_EVALUATED",
+        "PLACEMENT_CONFIRMED",
+        "PATHWAY_COMPLETED"
       ]
     },
     "aggregate_type": {
       "type": "string",
       "enum": [
-        "apprenticeship",
+        "lineage",
         "curriculum_version",
+        "master",
+        "apprenticeship",
+        "mentorship",
+        "practice_record",
+        "practice_work",
         "competency_record",
+        "competency_review",
+        "assessment_evidence",
+        "stipend",
         "placement"
       ]
     },
@@ -41,16 +75,137 @@
     },
     "occurred_at": {
       "type": "string",
-      "format": "date-time"
+      "format": "date-time",
+      "description": "业务事实真实发生时间；线下补录亦填写实际发生时间而非录入时间。"
     },
     "version": {
       "type": "integer",
-      "minimum": 1
+      "minimum": 1,
+      "description": "同一聚合内事件版本号，按接收顺序单调递增。"
     },
     "summary": {
       "type": "string",
       "minLength": 1
+    },
+    "correlation_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "可选。同一次业务办理（如一次复核、一次补录批次）产生的多事件串联标识。"
+    },
+    "correction_of_event_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "可选。本事件为更正后继时，指向被更正的原事件；原事件不删除、不覆盖。"
+    },
+    "source": {
+      "type": "object",
+      "description": "接入追溯块。所有接入记录沿用该结构，便于从档案回溯到学校、工作室、企业或线下凭证。",
+      "required": ["system", "record_id"],
+      "properties": {
+        "system": {
+          "type": "string",
+          "enum": [
+            "TALENT_CENTER",
+            "SKILL_SCHOOL",
+            "MASTER_STUDIO",
+            "EMPLOYING_ENTERPRISE",
+            "OFFLINE_BACKFILL"
+          ]
+        },
+        "record_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "来源系统中的原始记录号；线下补录填纸质凭证编号。"
+        },
+        "entry_channel": {
+          "type": "string",
+          "enum": ["ONLINE", "OFFLINE_BACKFILL"],
+          "default": "ONLINE"
+        },
+        "recorded_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "来源系统记录形成时间。"
+        },
+        "imported_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "补录进入本服务的时间；entry_channel=OFFLINE_BACKFILL 时必填。"
+        },
+        "batch_id": {
+          "type": "string",
+          "description": "线下补录批次号。"
+        },
+        "operator_id": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "payload": {
+      "type": "object",
+      "description": "事件业务载荷，字段约定见 docs/domain.md；受保护信息按最小必要原则写入。",
+      "properties": {
+        "restriction": {
+          "type": "object",
+          "description": "受限内容标记。CORE_STEP_ATTESTED 必须携带；企业视图不得透出其指向的保管内容。",
+          "required": ["classification", "conclusion", "vault_location"],
+          "properties": {
+            "classification": {
+              "type": "string",
+              "enum": ["RESTRICTED_CORE_TECHNIQUE"]
+            },
+            "conclusion": {
+              "type": "string",
+              "enum": ["COMPLETED", "NOT_COMPLETED", "WAIVED"],
+              "description": "只记录完成结论，不记录手法、配方、参数等技法细节。"
+            },
+            "vault_location": {
+              "type": "string",
+              "minLength": 1,
+              "description": "受限实物/资料的保管位置标识，内容本身不进入事件。"
+            },
+            "custodian_id": {
+              "type": "string",
+              "description": "保管责任人（大师工作室方）标识。"
+            }
+          },
+          "additionalProperties": false
+        },
+        "dedupe_key": {
+          "type": "string",
+          "minLength": 1,
+          "description": "幂等键。津贴发放等不可重复的业务以此键去重，线下补录与线上录入使用同一键空间。"
+        },
+        "assessments": {
+          "type": "array",
+          "description": "师傅、学校、用工企业多方评价；允许分歧，分歧进入复核，任一单次评价或打卡均不得自动生成能力认定。",
+          "items": {
+            "type": "object",
+            "required": ["party", "result"],
+            "properties": {
+              "party": {
+                "type": "string",
+                "enum": ["MASTER", "SCHOOL", "ENTERPRISE"]
+              },
+              "result": {
+                "type": "string",
+                "enum": ["PASS", "FAIL", "CONDITIONAL"]
+              },
+              "evaluator_id": { "type": "string" },
+              "evidence_ids": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "note": { "type": "string" }
+            },
+            "additionalProperties": false
+          },
+          "minItems": 1
+        }
+      },
+      "additionalProperties": true
     }
   },
-  "additionalProperties": true
+  "additionalProperties": false
 }
