@@ -1,0 +1,259 @@
+[
+  {
+    "event_id": "evt-0001",
+    "event_type": "LINEAGE_REGISTERED",
+    "aggregate_type": "craft_lineage",
+    "aggregate_id": "lineage-shaomai-jxy",
+    "occurred_at": "2026-09-21T09:00:00+08:00",
+    "version": 1,
+    "summary": "登记锦馨园烧麦制作技艺谱系，调馅与包制列为受限工序",
+    "payload": {
+      "craft_name": "锦馨园烧麦制作技艺",
+      "steps": [
+        { "step_id": "step-knead", "name": "和面", "disclosure": "open" },
+        { "step_id": "step-filling", "name": "调馅", "disclosure": "restricted" },
+        { "step_id": "step-wrap", "name": "包制", "disclosure": "restricted" },
+        { "step_id": "step-steam", "name": "蒸制", "disclosure": "open" }
+      ],
+      "masters": [{ "master_id": "master-wang", "max_apprentices": 2 }]
+    }
+  },
+  {
+    "event_id": "evt-0002",
+    "event_type": "CURRICULUM_PUBLISHED",
+    "aggregate_type": "curriculum_version",
+    "aggregate_id": "curr-shaomai-v1",
+    "occurred_at": "2026-09-21T10:00:00+08:00",
+    "version": 1,
+    "summary": "发布烧麦学徒课程标准 v1",
+    "payload": {
+      "lineage_id": "lineage-shaomai-jxy",
+      "version_no": 1,
+      "items": [
+        { "item_id": "credit-theory", "kind": "credit" },
+        { "item_id": "step-knead", "kind": "step" },
+        { "item_id": "step-filling", "kind": "step" },
+        { "item_id": "step-wrap", "kind": "step" },
+        { "item_id": "step-steam", "kind": "step" }
+      ]
+    }
+  },
+  {
+    "event_id": "evt-0003",
+    "event_type": "APPRENTICE_ENROLLED",
+    "aggregate_type": "apprenticeship",
+    "aggregate_id": "appx-li-001",
+    "occurred_at": "2026-09-22T09:00:00+08:00",
+    "version": 1,
+    "summary": "学员李某登记进入烧麦项目",
+    "payload": {
+      "apprentice_id": "app-li",
+      "lineage_id": "lineage-shaomai-jxy",
+      "curriculum_version_id": "curr-shaomai-v1"
+    }
+  },
+  {
+    "event_id": "evt-0004",
+    "event_type": "MENTORSHIP_ESTABLISHED",
+    "aggregate_type": "mentorship",
+    "aggregate_id": "mship-wang-li",
+    "occurred_at": "2026-09-22T10:00:00+08:00",
+    "version": 1,
+    "summary": "王师傅与李某建立师徒关系，占用一个带教名额",
+    "payload": {
+      "master_id": "master-wang",
+      "apprentice_id": "app-li",
+      "lineage_id": "lineage-shaomai-jxy"
+    }
+  },
+  {
+    "event_id": "evt-0005",
+    "event_type": "PRACTICE_RECORDED",
+    "aggregate_type": "practice_work",
+    "aggregate_id": "work-li-0001",
+    "occurred_at": "2026-09-25T15:00:00+08:00",
+    "version": 1,
+    "summary": "记录实训作品：烧麦一笼（和面、蒸制工序）",
+    "payload": {
+      "apprentice_id": "app-li",
+      "work_ref": "archive/works/2026/li-0001",
+      "step_refs": ["step-knead", "step-steam"],
+      "recorded_by": "school"
+    }
+  },
+  {
+    "event_id": "evt-0006",
+    "event_type": "EVALUATION_SUBMITTED",
+    "aggregate_type": "competency_record",
+    "aggregate_id": "comp:app-li:step-knead",
+    "occurred_at": "2026-09-26T10:00:00+08:00",
+    "version": 1,
+    "summary": "王师傅评价李某和面工序：通过",
+    "payload": {
+      "apprentice_id": "app-li",
+      "item_ref": "step-knead",
+      "evaluator": { "party": "master", "id": "master-wang" },
+      "verdict": "pass",
+      "evidence_refs": ["archive/works/2026/li-0001"]
+    }
+  },
+  {
+    "event_id": "evt-0007",
+    "event_type": "EVALUATION_SUBMITTED",
+    "aggregate_type": "competency_record",
+    "aggregate_id": "comp:app-li:step-knead",
+    "occurred_at": "2026-09-26T14:00:00+08:00",
+    "version": 2,
+    "summary": "学校评价李某和面工序：通过",
+    "payload": {
+      "apprentice_id": "app-li",
+      "item_ref": "step-knead",
+      "evaluator": { "party": "school", "id": "sch-dongcheng-01" },
+      "verdict": "pass",
+      "evidence_refs": ["school/exam/2026-09-26/li"]
+    }
+  },
+  {
+    "event_id": "evt-0008",
+    "event_type": "COMPETENCY_REVIEWED",
+    "aggregate_type": "competency_record",
+    "aggregate_id": "comp:app-li:step-knead",
+    "occurred_at": "2026-09-27T09:00:00+08:00",
+    "version": 3,
+    "summary": "和面工序能力认定：通过（师傅与学校两方一致）",
+    "payload": {
+      "apprentice_id": "app-li",
+      "item_ref": "step-knead",
+      "outcome": "certified",
+      "review": false,
+      "basis": ["evt-0006", "evt-0007"]
+    }
+  },
+  {
+    "event_id": "evt-0009",
+    "event_type": "EVALUATION_SUBMITTED",
+    "aggregate_type": "competency_record",
+    "aggregate_id": "comp:app-li:step-filling",
+    "occurred_at": "2026-09-28T10:00:00+08:00",
+    "version": 1,
+    "summary": "王师傅口传考核调馅工序：通过（受限工序，仅记结论与保管位置）",
+    "payload": {
+      "apprentice_id": "app-li",
+      "item_ref": "step-filling",
+      "evaluator": { "party": "master", "id": "master-wang" },
+      "verdict": "pass",
+      "custody_ref": "锦馨园工作室保密柜 A-3"
+    }
+  },
+  {
+    "event_id": "evt-0010",
+    "event_type": "EVALUATION_SUBMITTED",
+    "aggregate_type": "competency_record",
+    "aggregate_id": "comp:app-li:step-filling",
+    "occurred_at": "2026-09-29T10:00:00+08:00",
+    "version": 2,
+    "summary": "学校评价调馅工序：未通过，与师傅评价出现分歧",
+    "payload": {
+      "apprentice_id": "app-li",
+      "item_ref": "step-filling",
+      "evaluator": { "party": "school", "id": "sch-dongcheng-01" },
+      "verdict": "fail",
+      "custody_ref": "学校教务处考核档案柜 B-1"
+    }
+  },
+  {
+    "event_id": "evt-0011",
+    "event_type": "COMPETENCY_REVIEWED",
+    "aggregate_type": "competency_record",
+    "aggregate_id": "comp:app-li:step-filling",
+    "occurred_at": "2026-09-30T09:00:00+08:00",
+    "version": 3,
+    "summary": "调馅工序复核裁定：认定通过，结论与保管位置入档",
+    "payload": {
+      "apprentice_id": "app-li",
+      "item_ref": "step-filling",
+      "outcome": "certified",
+      "review": true,
+      "conclusion": "已完成",
+      "custody_ref": "锦馨园工作室保密柜 A-3",
+      "basis": ["evt-0009", "evt-0010"]
+    }
+  },
+  {
+    "event_id": "evt-0012",
+    "event_type": "ALLOWANCE_ISSUED",
+    "aggregate_type": "allowance_ledger",
+    "aggregate_id": "allowance:app-li:2026-09:training",
+    "occurred_at": "2026-09-30T15:00:00+08:00",
+    "version": 1,
+    "summary": "发放李某 2026 年 9 月实训津贴",
+    "payload": {
+      "apprentice_id": "app-li",
+      "period": "2026-09",
+      "item": "实训津贴",
+      "amount": 800,
+      "backfilled": false
+    }
+  },
+  {
+    "event_id": "evt-0013",
+    "event_type": "ALLOWANCE_ISSUED",
+    "aggregate_type": "allowance_ledger",
+    "aggregate_id": "allowance:app-li:2026-08:training",
+    "occurred_at": "2026-08-31T17:00:00+08:00",
+    "version": 1,
+    "summary": "补录李某 2026 年 8 月实训津贴（依据线下签到表）",
+    "payload": {
+      "apprentice_id": "app-li",
+      "period": "2026-08",
+      "item": "实训津贴",
+      "amount": 800,
+      "backfilled": true,
+      "source_ref": "线下签到表 2026-08（人才服务中心扫描件 034）"
+    }
+  },
+  {
+    "event_id": "evt-0014",
+    "event_type": "TRIAL_PLACEMENT_STARTED",
+    "aggregate_type": "placement",
+    "aggregate_id": "placement:app-li",
+    "occurred_at": "2026-10-01T09:00:00+08:00",
+    "version": 1,
+    "summary": "李某进入京味斋餐饮试岗：面点师助理",
+    "payload": {
+      "apprentice_id": "app-li",
+      "enterprise_id": "ent-jingweizhai",
+      "position_ref": "面点师助理"
+    }
+  },
+  {
+    "event_id": "evt-0015",
+    "event_type": "PLACEMENT_CONFIRMED",
+    "aggregate_type": "placement",
+    "aggregate_id": "placement:app-li",
+    "occurred_at": "2026-10-02T10:00:00+08:00",
+    "version": 2,
+    "summary": "京味斋确认正式录用李某为面点师",
+    "payload": {
+      "apprentice_id": "app-li",
+      "enterprise_id": "ent-jingweizhai",
+      "position_ref": "面点师",
+      "basis": ["comp:app-li:step-knead", "comp:app-li:step-filling"]
+    }
+  },
+  {
+    "event_id": "evt-0016",
+    "event_type": "EMPLOYMENT_OUTCOME_RECORDED",
+    "aggregate_type": "apprenticeship",
+    "aggregate_id": "appx-li-001",
+    "occurred_at": "2026-10-02T11:00:00+08:00",
+    "version": 2,
+    "summary": "登记李某去向：正式就业",
+    "payload": {
+      "apprentice_id": "app-li",
+      "outcome": "employed",
+      "employer_ref": "ent-jingweizhai",
+      "position_ref": "面点师"
+    }
+  }
+]

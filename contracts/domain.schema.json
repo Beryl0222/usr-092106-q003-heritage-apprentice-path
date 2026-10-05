@@ -1,6 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "非遗学徒成长档案领域事件",
+  "description": "事件信封契约。所有接入记录（含学校、工作室、企业与线下补录）沿用同一组追溯字段；事件被接收后其标识、发生时间与版本不原地改写，业务更正以后继事件表达。",
   "type": "object",
   "required": [
     "event_id",
@@ -14,15 +15,28 @@
   "properties": {
     "event_id": {
       "type": "string",
-      "minLength": 1
+      "minLength": 1,
+      "description": "全局唯一的事件标识，重复标识将被拒收"
     },
     "event_type": {
       "type": "string",
       "enum": [
         "APPRENTICE_ENROLLED",
-        "PRACTICE_RECORDED",
-        "COMPETENCY_REVIEWED",
+        "APPRENTICE_SUSPENDED",
+        "APPRENTICE_RESUMED",
+        "APPRENTICE_TRANSFERRED",
         "CREDIT_TRANSFERRED",
+        "EMPLOYMENT_OUTCOME_RECORDED",
+        "LINEAGE_REGISTERED",
+        "CURRICULUM_PUBLISHED",
+        "CURRICULUM_SUPERSEDED",
+        "MENTORSHIP_ESTABLISHED",
+        "MENTORSHIP_ENDED",
+        "PRACTICE_RECORDED",
+        "EVALUATION_SUBMITTED",
+        "COMPETENCY_REVIEWED",
+        "ALLOWANCE_ISSUED",
+        "TRIAL_PLACEMENT_STARTED",
         "PLACEMENT_CONFIRMED"
       ]
     },
@@ -30,26 +44,37 @@
       "type": "string",
       "enum": [
         "apprenticeship",
+        "craft_lineage",
         "curriculum_version",
+        "mentorship",
+        "practice_work",
         "competency_record",
+        "allowance_ledger",
         "placement"
       ]
     },
     "aggregate_id": {
       "type": "string",
-      "minLength": 1
+      "minLength": 1,
+      "description": "聚合标识。约定：能力记录为 comp:<学员>:<工序/课程项>，津贴台账为 allowance:<学员>:<期间>:<项目>，试岗为 placement:<学员>"
     },
     "occurred_at": {
       "type": "string",
-      "format": "date-time"
+      "format": "date-time",
+      "description": "业务发生时间；线下补录填原始发生时间，并在 payload 标记 backfilled 与 source_ref"
     },
     "version": {
       "type": "integer",
-      "minimum": 1
+      "minimum": 1,
+      "description": "同一聚合内从 1 开始严格递增；补录记录同样顺延版本"
     },
     "summary": {
       "type": "string",
       "minLength": 1
+    },
+    "payload": {
+      "type": "object",
+      "description": "业务内容。各事件的必填字段见 src/events.js 事件目录与 docs/domain-model.md"
     }
   },
   "additionalProperties": true
